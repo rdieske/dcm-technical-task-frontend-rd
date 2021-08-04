@@ -22,5 +22,5 @@ class TestIndex(TestCase):
         testRunRequest1 = TestRunRequest.objects.create(requested_by='Greg', env=self.env)
         testRunRequest2 = TestRunRequest.objects.create(requested_by='Raffael', env=self.env)
         response = self.client.get('')
-        self.assertEqual(response.context['TestRunRequests'][0].requested_by, 'Raffael')
-        self.assertEqual(response.context['TestRunRequests'][1].requested_by, 'Greg')
+        self.assertEqual(response.context['TestRunRequests'][0].requested_by, testRunRequest2.requested_by)
+        self.assertEqual(response.context['TestRunRequests'][1].requested_by, testRunRequest1.requested_by)
