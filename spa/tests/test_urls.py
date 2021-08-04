@@ -1,10 +1,15 @@
-from django.test import TestCase
-from django.urls import reverse
+from django.urls import resolve
 
-from rest_framework import status
+from django.test import TestCase
+
+from spa.urls import urlpatterns
 
 class TestUrlpatterns(TestCase):
-        
+
     def test_indexPath(self):
-        response = self.client.get('')
-        self.assertEqual(status.HTTP_200_OK, response.status_code)
+        resolver = resolve('/')
+        self.assertEqual(resolver.view_name, 'index')
+
+    def test_static_attached(self):
+        staticpattern = urlpatterns[len(urlpatterns)-1].pattern.regex.pattern
+        self.assertEquals(staticpattern, '^static/(?P<path>.*)$')

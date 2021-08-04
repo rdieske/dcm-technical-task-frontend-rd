@@ -1,0 +1,85 @@
+:root {
+    --ionos_blue: #003d8f;
+    --white: #ffffff;
+    --beige: #f6f7f8;
+}
+
+.header {
+    background-color: var(--ionos_blue);
+    padding-top: 16px;
+    padding-bottom: 12px;
+}
+
+.container {
+    background-color: var(--white);
+    width: 100%;
+    max-width: 1200px;
+    max-width: 75rem;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.header-container {
+    background-color: var(--ionos_blue);
+}
+
+.header-logo {
+    background: rgba(0, 0, 0, 0) url('/spa/assets/ionos_logo.svg')no-repeat 50%;
+    height: 2.25rem;
+    width: 8rem;
+    display: inline-block;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    text-align:left;
+}
+
+tr {
+    background-color: var(--white);
+}
+tr:hover {
+    background-color: var(--beige);
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+bottom: .5em;
+}
+
+.SUCCESS{
+    background-color: var(--green);
+}
+
+.RUNNING {
+    background-color: var(--gray);
+}
+
+.FAILED {
+    background-color: var(--red);
+}
+
+.CREATED {
+    background-color: var(--gray);
+}
+
+.RETRYING {
+    background-color: var(--yellow);
+}
+
+.FAILED_TO_START {
+    background-color: var(--red);
+}
