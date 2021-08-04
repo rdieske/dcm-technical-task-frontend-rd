@@ -15,8 +15,14 @@
                 <span class="header-logo"></span>
             </div>
         </header>
-        <div class="container" id="testRunRequestsContainer">
-           
+        <div class="container border rounded">
+            <figcaption>Request test execution</figcaption>
+            <form class="form-group" method="post" id="testRunRequestForm">
+                {% csrf_token %}
+                {{ form.as_table }}
+                <input type="submit" value="Submit">
+            </form>
         </div>
+        <div class="container border rounded" id="testRunRequestsContainer" \>
       </body>
 </html> 

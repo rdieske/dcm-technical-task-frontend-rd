@@ -9,19 +9,18 @@
 
 .header {
     background-color: var(--ionos_blue);
-    padding-top: 16px;
-    padding-bottom: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .container {
     background-color: var(--white);
-    width: 100%;
-    max-width: 1200px;
     max-width: 75rem;
     margin-right: auto;
     margin-left: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 1.5rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .header-container {
@@ -29,7 +28,7 @@
 }
 
 .header-logo {
-    background: rgba(0, 0, 0, 0) url('/spa/assets/ionos_logo.svg')no-repeat 50%;
+    background: rgba(0, 0, 0, 0) url('/static/spa/assets/ionos_logo.svg')no-repeat 50%;
     height: 2.25rem;
     width: 8rem;
     display: inline-block;
@@ -37,11 +36,15 @@
 
 table {
     width: 100%;
-    margin: 10px;
+}
+
+input{
+    margin-top: 10px;
 }
 
 figcaption{
-    margin: 10px;
+    font-weight: 600;
+    font-size: 1.05rem;
 }
 
 .SUCCESS{

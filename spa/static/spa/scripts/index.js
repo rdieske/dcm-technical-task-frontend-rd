@@ -19,6 +19,23 @@ $(document).ready(function () {
     setInterval(function () {
         renderTable();
     }, 5000);
+
+    $('#testRunRequestForm').submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: '/api/v1/test-run',
+            dataType: 'json',
+            headers: {
+                "X-CSRFToken": getCookie('csrftoken')
+            },
+            mode: "same-origin",
+            data:$('#testRunRequestForm').serialize(),
+            success:function(){
+                renderTable()
+            }
+        });
+    });
 });
 
 function renderTable()
