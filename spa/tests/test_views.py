@@ -24,3 +24,24 @@ class TestIndex(TestCase):
         response = self.client.get('')
         self.assertEqual(response.context['TestRunRequests'][0].requested_by, testRunRequest2.requested_by)
         self.assertEqual(response.context['TestRunRequests'][1].requested_by, testRunRequest1.requested_by)
+    
+
+class TestTestRunRequestTable(TestCase):
+    def setUp(self) -> None:
+        self.env = TestEnvironment.objects.create(name='my_env')
+        
+    def test_indexAjaxRequestHasCorrectTemplate(self):
+        jsonResponse = self.client.post(
+            '',
+            content_type='application/json',
+            HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertTemplateUsed(jsonResponse, 'spa/runRequestsTable.html')
+
+    def test_indexAjaxRequestContextHasTestRunRequests(self):
+        TestRunRequest.objects.create(requested_by='Greg', env=self.env)
+        TestRunRequest.objects.create(requested_by='Raffael', env=self.env)
+        jsonResponse = self.client.post(
+            '',
+            content_type='application/json',
+            HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertQuerysetEqual(jsonResponse.context['TestRunRequests'], TestRunRequest.objects.all().reverse(),ordered=False)
