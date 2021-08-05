@@ -24,7 +24,7 @@
             <td class="col-1">{{ testRunRequest.requested_by }}</td>
             <td class="col-2">{{ testRunRequest.created_at }}</td>
             <td class="col-1">{{ testRunRequest.env }}</td>
-            <td class="col-3">{{ testRunRequest.path }}</td>
+            <td class="col-3"> {% for path in testRunRequest.path.all %}{{ path.path }}</br>{% endfor %}</td>
             <td class="col-1">{{ testRunRequest.status }}</td>
             <td class="col-1"><a href=''>View Details</a></td>
         </tr>
