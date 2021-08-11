@@ -26,10 +26,11 @@ $(document).ready(function () {
             type: "POST",
             url: '/api/v1/test-run',
             dataType: 'json',
-            headers: {
-                "X-CSRFToken": getCookie('csrftoken')
-            },
-            mode: "same-origin",
+            // Needs to be added, when only logged in users are allowed to access the api
+            // headers: {
+            //     "X-CSRFToken": getCookie('csrftoken')
+            // },
+            // mode: "same-origin",
             data:$('#testRunRequestForm').serialize(),
             success:function(){
                 renderTable()
@@ -41,13 +42,14 @@ $(document).ready(function () {
 function renderTable()
 {
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "",
         dataType: 'json',
-        headers: {
-            "X-CSRFToken": getCookie('csrftoken')
-        },
-        mode: "same-origin",
+        // Needs to be added, when only logged in users are allowed to access the api
+        // headers: {
+        //     "X-CSRFToken": getCookie('csrftoken')
+        // },
+        // mode: "same-origin",
     }).done(function(data) {
         $('#testRunRequestsContainer').html(data.html_table);
     });
