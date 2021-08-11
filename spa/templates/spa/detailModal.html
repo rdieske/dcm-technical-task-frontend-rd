@@ -1,0 +1,63 @@
+{% load static %}
+<div class="modal fade"
+     id="detailModal"
+     data-bs-backdrop="static"
+     data-bs-keyboard="false"
+     tabindex="-1"
+     aria-labelledby="staticBackdropLabel"
+     aria-hidden="true">
+
+    <script src="{% static 'spa/scripts/detailModal.js' %}" crossorigin="anonymous"></script>
+    <div class="modal-dialog modal-fullscreen modal-dialog-scrollable">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5>Test details</h5>
+            <button type="button" 
+                    class="btn-close" 
+                    data-bs-dismiss="modal" 
+                    aria-label="Close">
+            </button>
+        </div>
+        <div class="modal-body">
+            <table 
+                id="testRunDetailTable" 
+                class="table table-striped table-bordered table-sm" 
+                data-striped="true">
+                <tbody>
+                    <tr>
+                        <td scope="row" class="col-1">ID</td>
+                        <td id="idField" ></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="col-1">Requested by</td>
+                        <td id="reqField" ></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="col-1">Env</td>
+                        <td id="envField" ></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="col-1">Path</td>
+                        <td id="pathField" ></td>
+                    </tr>
+                    <tr id="stateColumn">
+                        <td scope="row" class="col-1">Status</td>
+                        <td id="stateField" scope="row" ></td>
+                    </tr>
+                    <tr >
+                        <td scope="row" class="col-1">Logs</td>
+                        <td id="logsField" ></td>
+                    </tr>
+                </tbody> 
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+                Close
+            </button>
+        </div>
+        </div>
+    </div>
+</div>
