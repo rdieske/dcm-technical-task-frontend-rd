@@ -1,20 +1,16 @@
 <table 
     id="testRunRequestsTable" 
-    class="table table-striped table-bordered table-sm" 
-    data-striped="true"
-    data-sort-name="Quality" 
-    data-sort-order="desc" 
-    data-pagination="true">
+    class="table table-striped table-bordered table-sm">
     <figcaption>Test execution requests</figcaption>
     <thead>
         <tr>
-            <th scope="col-1" class="th-sm sort">Request ID</th>
-            <th scope="col-1" class="th-sm sort">Requested By</th>
-            <th scope="col-2" class="th-sm sort">Created At</th>
-            <th scope="col-1" class="th-sm sort">Test Env</th>
-            <th scope="col-3" class="th-sm sort">Test Path</th>
-            <th scope="col-1" class="th-sm sort">Status</th>
-            <th scope="col-1" class="th-sm sort">Details</th>
+            <th scope="col" class="th-sm sort">Request ID</th>
+            <th scope="col" class="th-sm sort">Requested By</th>
+            <th scope="col" class="th-sm sort">Created At</th>
+            <th scope="col" class="th-sm sort">Test Env</th>
+            <th scope="col" class="th-sm sort">Test Path</th>
+            <th scope="col" class="th-sm sort">Status</th>
+            <th scope="col" class="th-sm sort">Details</th>
         </tr>
     </thead>
     <tbody>
@@ -24,9 +20,22 @@
             <td class="col-1">{{ testRunRequest.requested_by }}</td>
             <td class="col-2">{{ testRunRequest.created_at }}</td>
             <td class="col-1">{{ testRunRequest.env }}</td>
-            <td class="col-3"> {% for path in testRunRequest.path.all %}{{ path.path }}</br>{% endfor %}</td>
+            <td class="col-3">
+                {% for path in testRunRequest.path.all %}
+                    {{ path.path }}
+                    </br>
+                {% endfor %}
+            </td>
             <td class="col-1">{{ testRunRequest.status }}</td>
-            <td class="col-1"><a href=''>View Details</a></td>
+            <td class="col-1">
+                <button type="button" 
+                        class="btn sm btn-primary text-nowrap" 
+                        data-bs-toggle="modal"
+                        data-bs-target="#detailModal" 
+                        data-testid="{{ testRunRequest.pk }}">
+                    View Details
+                </button>
+            </td>
         </tr>
         {% endfor %}
     </tbody> 
