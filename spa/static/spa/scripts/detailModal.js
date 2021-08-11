@@ -10,8 +10,13 @@ $(document).ready(function () {
                 $('#idField').html(dataResponse.id);
                 $('#reqField').html(dataResponse.requested_by);
                 $('#envField').html(dataResponse.env_name);
-                $('#pathField').html(dataResponse.path);
+                
+                
+                var path_names = $.map(dataResponse.path_names, function(item){
+                    return item.path + '\n';
+                })
 
+                $('#pathField').html(path_names);
                 $('#stateColumn').removeClass();
                 $('#stateColumn').addClass(dataResponse.status);
                 $('#stateField').html(dataResponse.status);

@@ -128,7 +128,7 @@ class TestRunRequestItemAPIView(TestCase):
         self.assertIn('env_name', response_data)
         self.assertIn('id', response_data)
         self.assertIn('logs', response_data)
-        self.assertIn('path', response_data)
+        self.assertIn('path_names', response_data)
         self.assertIn('requested_by', response_data)
         self.assertIn('status', response_data)
 
@@ -137,7 +137,10 @@ class TestRunRequestItemAPIView(TestCase):
         self.assertEqual(self.env.name, response_data['env_name'])
         self.assertEqual(self.test_run_req.id, response_data['id'])
         self.assertEqual(self.test_run_req.logs, response_data['logs'])
-        self.assertEqual([self.path1.id, self.path2.id], response_data['path'])
+        self.assertEqual([
+            {"id" : self.path1.id, "path": self.path1.path},
+            {"id" : self.path2.id, "path": self.path2.path}
+        ], response_data['path_names'])
         self.assertEqual(self.test_run_req.requested_by, response_data['requested_by'])
         self.assertEqual(self.test_run_req.status, response_data['status'])
 

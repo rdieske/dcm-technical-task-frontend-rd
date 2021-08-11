@@ -68,5 +68,9 @@ figcaption{
 }
 
 .FAILED_TO_START {
-    background-color: var(--blightred);
+    background-color: var(--lightred);
+}
+
+#logsField, #pathField{
+    white-space: pre-wrap;
 }
